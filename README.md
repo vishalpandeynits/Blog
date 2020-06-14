@@ -1,4 +1,5 @@
 # Blog-
+<pre>
 First Django project
 
 This is my first django project.
@@ -23,3 +24,4 @@ Features to be added--
 2.Commenting and sharing a blog on various social media platforms.
 3.View profile and works of others,if they permit.
 4.Reporting of any offensive or vulgar blogs to admin.
+</pre>
