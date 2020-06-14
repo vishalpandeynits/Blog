@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+<title>{% block title %}  {% endblock %} </title>
+<body>
+    <h1>My site </h1>
+    <a href="{% url 'home' %}"> HOME </a><br>
+    <a href="{% url 'signup' %}"> SIGN UP </a><br>
+    <a href="{% url 'login' %}"> LOG IN </a><br>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</head>
+<html>

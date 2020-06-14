@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+	{% if mynotes %}
+	<form class="form-inline float-right my-2 my-lg-0">
+      <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form><br><hr>
+	{% for note in mynotes %}
+		<a style="margin-left:20px;" class="btn btn-danger float-right" href="/delete/{{note.pk}}"> Delete </a>
+		<a style="margin-right:10px;" class="btn btn-primary float-right" href="/update/{{note.pk}}"> Update </a>
+		<p> Post Number {{ note.id }} </p>
+	<a href="/status/{{note.pk}}" style="text-size:2em;"> {{note.title}} </a>
+	<hr>
+	{% endfor %}
+	{% else %}
+	<h3>You don't have any notes.<h3>
+		Create One ? <a href="{% url 'create' %}" >Add note </a><br>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div style="font-weight:bold;"class="text-center">
+        <img id="pic" src="/media/media/images/1.jpg" style="border-radius:100px;"height="200" width="200"><br>
+        Username:{{ user.username }}<br>
+        {% if user.profile %}
+            Email {{ request.user.email }}<br>
+            {% if semester %}
+            Semester: {{ user.profile.semester }}<br>
+            {% endif %}
+            {% if user.profile.location %}
+            Location: {{ user.profile.location}}<br>
+             {% endif %}
+            {% if user.profile.institution %}
+            Institute: {{ user.profile.institution }}<br>
+             {% endif %}
+            {% if user.profile.profile_pic %}
+            {% if user.profile.profile_pic %}
+             {% endif %}
+                <script>
+                     document.getElementById("pic").src="{{ user.profile.profile_pic.url }}";
+                </script>
+            {% endif %}
+        {% else %}
+            Update Your Profile <br>
+        {% endif %}
+        <button type="button" class="btn btn-primary" onclick="myfunction()" > Update Profile </button>
+    </div>
+
+
+    <form style="display:none;"id="form" method="POST" action="#" enctype= "multipart/form-data"> {% csrf_token %}
+        {{ form|crispy }}
+		<input type="submit" value="submit">
+	</form>
+    <script>
+        function myfunction(){
+            document.getElementById('form').style.display="block";
+        }
+    </script>
+{% endblock %}
