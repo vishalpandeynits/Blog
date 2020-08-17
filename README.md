@@ -1,5 +1,13 @@
 # Blog
 <pre>
+<h2>Requirements </h2>
+django
+pillow
+django-contrib-comments
+django-crispy-forms
+django-ckeditor
+
+
 Visit website at <a href="http://vishalblogs.pythonanywhere.com/">Vishal's Blog </a>
 First Django project
 
@@ -26,4 +34,8 @@ Features to be added--
 2.Commenting and sharing a blog on various social media platforms.
 3.View profile and works of others,if they permit.
 4.Reporting of any offensive or vulgar blogs to admin.
+
+<h2> Bugs</h2>
+1. Forgot Password and rich text editor not working in
+deployment mode but working on development mode
 </pre>
