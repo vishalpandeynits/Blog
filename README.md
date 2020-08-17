@@ -18,7 +18,7 @@ Features:
   c.content.
 3.Search blog by authorname,blog title,blog content.
 4.Update and delete your own blog.
-
+5. <span style="color:green;>The best thing about this blog is tha a Rich text editor is integrated</span>
 Features to be added--
 
 1.like a blog and store it in your liked blogs
