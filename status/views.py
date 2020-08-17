@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import RegisterForm
 from django.http import Http404
-
+from django.contrib.auth.models import User
 @login_required
 def createpost(request):
 	if request.method=="POST":
@@ -38,7 +38,7 @@ def delete(request,id):
 		post.delete()
 	else:
 		raise Http404()
-	return redirect('/status')
+	return redirect('all_notes')
 
 @login_required
 def update(request,id):
@@ -47,7 +47,7 @@ def update(request,id):
 		form = PostForm(request.POST or None , instance = post)
 		if form.is_valid():
 			form.save()
-			return redirect('/status')
+			return redirect(f'/status/{id}')
 	else:
 		raise Http404()
 	return render(request,'form.html',{'form':form})
@@ -58,7 +58,7 @@ def signup(request):
 		if form.is_valid() :
 			new_user=form.save()
 			Profile.objects.create(user=new_user)
-			return redirect('/accounts/login/')
+			return redirect('all_notes')
 	else:
 		form= RegisterForm()
 	return render(request,'registration/signup.html',{'form':form,'form2':ProfileForm })
@@ -87,6 +87,9 @@ def myaccount(request):
 			profile.save()
 			return redirect('/myaccount')
 	else:
-		form = ProfileForm(instance=request.user.profile)
+		try:
+			form = ProfileForm(instance=request.user.profile)
+		except User.profile.RelatedObjectDoesNotExist:
+			form = ProfileForm()
 	params= {'form':form,}
 	return render(request,'myaccount.html',params)
