@@ -19,6 +19,9 @@ class ProfileForm(forms.ModelForm):
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(label = "Email")
+    #you can add first name,last name, full name , email input fields here,
+    #if you still not satisfied with these fields, you have to make one more
+    #model , and  associate a form with it and render this form with user registration
     class Meta:
         model = User
         fields = ("username","email",'password1','password2',)

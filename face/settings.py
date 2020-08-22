@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'status.apps.StatusConfig',
     'crispy_forms',
     'ckeditor',
+<<<<<<< HEAD
+    'ckeditor_uploader',
+=======
     'ckeditor_uploader'
+>>>>>>> eb48292bdc9c956a198a4fd89b32dddbf1620ec7
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,10 +54,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'face.urls'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -177,7 +182,11 @@ CKEDITOR_CONFIGS = {
             'autoembed',
             'embedsemantic',
             'autogrow',
+<<<<<<< HEAD
+            # 'devtools',
+=======
             'devtools',
+>>>>>>> eb48292bdc9c956a198a4fd89b32dddbf1620ec7
             'widget',
             'lineutils',
             'clipboard',
@@ -188,4 +197,8 @@ CKEDITOR_CONFIGS = {
     }
 }
 STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+<<<<<<< HEAD
 STATIC_URL = '/static/'
+=======
+STATIC_URL = '/static/'
+>>>>>>> eb48292bdc9c956a198a4fd89b32dddbf1620ec7
