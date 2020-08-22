@@ -7,7 +7,7 @@ django-contrib-comments
 django-crispy-forms
 django-ckeditor
 
-
+<p> Use <u> python manage.py collectstatic </u> for using text editor in your PC </p>
 Visit website at <a href="http://vishalblogs.pythonanywhere.com/">Vishal's Blog </a>
 First Django project
 
