@@ -12,5 +12,19 @@
 	{% endif %}
 
 	{{ read.content|safe }}
+	 </hr>
+	<br/>
+	<form action="/like/{{read.id }}/" method="POST"> {% csrf_token %}
+		<button type="submit" class="btn btn-primary btn-sm">
+			{% if liked %}
+				Unlike
+			{% else %}
+				Like 
+			{% endif %}
+			
+		</button>
+    </form> 
+    {{liked_by|length}} likes
+
 	<hr>
 {% endblock %}
