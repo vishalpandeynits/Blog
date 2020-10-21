@@ -7,6 +7,8 @@ from django.db.models import Q
 from .forms import RegisterForm
 from django.http import Http404
 from django.contrib.auth.models import User
+
+
 @login_required
 def createpost(request):
 	if request.method=="POST":
