@@ -67,8 +67,25 @@ def signup(request):
 
 def read(request,id):
 	post=Post.objects.get(id=id)
-	params={'read':post}
+	liked_by = post.likes.all()
+	liked = liked_by.filter(id=request.user.id).exists()
+	params={
+		'read':post,
+		'liked_by':liked_by,
+		'liked':liked
+		}
 	return render(request,'read.html',params)
+
+def like_post(request,id):
+	if request.method=="POST":
+		post = Post.objects.get(id=id)
+		if not post.likes.filter(id=request.user.id).exists():
+			post.likes.add(request.user)
+		else:
+			post.likes.remove(request.user)
+	return redirect(f"/status/{id}")
+
+
 
 @login_required
 def mynotes(request):

@@ -10,4 +10,5 @@ urlpatterns = [
     path('status/<int:id>',views.read),
     path('signup/',views.signup,name="signup"),
     path('accounts/',include('django.contrib.auth.urls')),
-] 
+    path('like/<int:id>/',views.like_post,name="like_post")
+]  
