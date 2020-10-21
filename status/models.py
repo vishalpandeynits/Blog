@@ -12,7 +12,7 @@ class Post(models.Model):
 	title=models.CharField(max_length=100)
 	content = RichTextUploadingField(blank=True)
 	date_pub = models.DateField(default= x.strftime("%Y-%m-%d"),null =True)
-
+	likes =models.ManyToManyField(User, related_name='blog_posts')
 	
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete =models.CASCADE,null=True)
