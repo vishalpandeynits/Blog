@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div style="width:50%;border:0.5px solid blue;padding:20px;margin:auto;margin-top: 7%;">
+        <h1 class="text-center lead"style="font-size:2em;font-weight:bold;color:green;">LOG IN</h1>
+        <form method="post" novalidate >{% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.username.errors }}
+            <label for="{{ form.username.id_for_label }}">Username/E-mail:</label><br>
+            <span style="width:100%;">{{ form.username }}</span>
+        </div>
+        <div class="fieldWrapper">
+            {{ form.password.errors }}
+             <label for="{{ form.password.id_for_label }}">Password:</label><br>
+            <span style="width:100%;">{{ form.password }}</span>
+        </div><br>
+        <button type="submit" class='btn btn-primary btn-block' value="LOG IN">LOG IN</button> <br>
+        <a href="{% url 'password_reset' %}">Forgot Password?</a> <br><br>
+        </form>
+    </div>
+{% endblock %}

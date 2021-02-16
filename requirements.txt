@@ -1,0 +1,5 @@
+django
+pillow
+django-contrib-comments
+django-crispy-forms
+django-ckeditor

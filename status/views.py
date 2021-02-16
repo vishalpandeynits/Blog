@@ -1,13 +1,11 @@
 from django.shortcuts import render,redirect
 from .forms import PostForm , ProfileForm
 from .models import Post ,Profile
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import RegisterForm
 from django.http import Http404
 from django.contrib.auth.models import User
-
 
 @login_required
 def createpost(request):
@@ -28,7 +26,8 @@ def all_notes(request):
 	if request.GET.get('search'):
 		search=request.GET.get('search')
 		post=post.filter(Q(subject__icontains=search)|Q(title__icontains=search)|Q(content__icontains=search))
-	params= {'post':post,
+	params= {
+			'post':post,
 			'num_posts':len(post),
 			}
 	return render(request,'post.html',params)
@@ -67,25 +66,8 @@ def signup(request):
 
 def read(request,id):
 	post=Post.objects.get(id=id)
-	liked_by = post.likes.all()
-	liked = liked_by.filter(id=request.user.id).exists()
-	params={
-		'read':post,
-		'liked_by':liked_by,
-		'liked':liked
-		}
+	params={'read':post}
 	return render(request,'read.html',params)
-
-def like_post(request,id):
-	if request.method=="POST":
-		post = Post.objects.get(id=id)
-		if not post.likes.filter(id=request.user.id).exists():
-			post.likes.add(request.user)
-		else:
-			post.likes.remove(request.user)
-	return redirect(f"/status/{id}")
-
-
 
 @login_required
 def mynotes(request):
