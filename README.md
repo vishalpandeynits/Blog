@@ -1,4 +1,5 @@
 # Blog
+<pre>
 Django blog project focused on CRUD operation, the Authentication system, rich text editor, Searching blogs by title and description.
 Features: 
 1.Full User authentication
@@ -21,3 +22,4 @@ Features to be added--
 2.Commenting and sharing a blog on various social media platforms.
 3.View profile and works of others,if they permit.
 4.Reporting of any offensive or vulgar blogs to admin.
+</pre>
