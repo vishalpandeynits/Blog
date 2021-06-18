@@ -9,7 +9,7 @@
 		<a style="margin-left:20px;" class="btn btn-danger float-right" href="/delete/{{note.pk}}"> Delete </a>
 		<a style="margin-right:10px;" class="btn btn-primary float-right" href="/update/{{note.pk}}"> Update </a>
 		<p> Post Number {{ note.id }} </p>
-	<a href="/status/{{note.pk}}" style="text-size:2em;"> {{note.title}} </a>
+	<a href="/status/{{note.pk}}"> {{note.title}} </a>
 	<hr>
 	{% endfor %}
 	{% else %}

@@ -2,7 +2,7 @@
 {% block content %}
 	{% load crispy_forms_tags %}
 	<div class="row">
-		<div style="display:flex;justify-content:center;align-items:center;" class="col-lg-8 col-md-12">
+		<div style="border:2px solid black;" class="col-lg-8 p-4 col-md-12 m-auto">
 			<form method="post" enctype="multipart/form-data">
 		    {% csrf_token %}
 		    {{ form.media }} 

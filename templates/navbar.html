@@ -14,11 +14,11 @@
         <li class="nav-item">
           <a class="nav-link" style="color:red;" href="/mynotes/">Your Notes </a>
         </li>
-      </ul>
       {% endif %}
+    </ul>
 
+    <ul class="navbar-nav dropleft float-right">
        {% if user.is_authenticated %}
-      <ul class="navbar-nav dropleft float-right">
           <li class="nav-item dropdown mr-2">
             <a class="nav-link dropdown-toggle text-capitalize" id="navbarDropdown" role="button" style="color:red;"data-toggle="dropdown" aria-haspopup="true">{{user.username}}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,10 +28,10 @@
             </div>
           </li>
       {% else %}
-      <div style="position:absolute;right:25px;">
-          <a class="btn btn-success mr-auto " href="{% url 'signup' %}"> Sign Up</a>
-          <a class="btn btn-success mr-auto " href="{% url 'login'  %}"> Log In </a>
-        </div>
+      <div>
+          <a class="btn btn-success mr-auto list-inline" href="{% url 'signup' %}"> Sign Up</a>
+          <a class="btn btn-success mr-auto list-inline" href="{% url 'login'  %}"> Log In </a>
+      </div>
       {% endif %}
     </ul>		
   </div>

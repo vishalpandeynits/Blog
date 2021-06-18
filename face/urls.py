@@ -4,7 +4,8 @@ from django.urls import path,include
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('status.urls', 'status'), namespace='status')),
+    path('', include('status.urls')),
+    path('accounts/',include('django.contrib.auth.urls')),
     path('comments/', include('django_comments.urls')),
     path('create/',include('ckeditor_uploader.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))

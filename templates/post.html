@@ -14,7 +14,7 @@
 		<a style="margin-left:10px;" class="btn btn-danger float-right ml-4" href="/update/{{note.pk}}"> Update </a>
 	{% endif %}
 		<p> Post Number {{ note.id }} </p>
-	<a href="/status/{{note.pk}}" style="text-size:2em;"> {{note.title}} </a>
+	<a href="/status/{{note.pk}}"> {{note.title}} </a>
 	<p> By {{ note.user }} on {{ note.date_pub }} <p>
 	{% endfor %}
 {% endblock %}

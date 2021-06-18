@@ -1,20 +1,17 @@
 from django.urls import path,include
-from . import views
-app_name = 'status'
+from .views import *
 
 urlpatterns = [
-	path('',views.all_notes,name="all_notes"),
-    path('create/',views.createpost,name="create"),
-    path('mynotes/',views.mynotes,name="mynotes"),
-    path('myaccount/',views.myaccount),
-    path('delete/<int:id>',views.delete),
-    path('update/<int:id>',views.update),
-    path('status/<int:id>',views.read),
-    path('signup/',views.signup,name="signup"),
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('query/',views.listpost.as_view()),
-    path('queryd/<int:pk>',views.listdetails.as_view()),
-    path('users/',views.userlist.as_view()),
-    path('users/<str:username>',views.userdetail.as_view(),name="userdetail")
-
+	path('',all_notes,name="all_notes"),
+    path('signup/',signup,name="signup"),
+    path('create/',createpost,name="create"),
+    path('mynotes/',mynotes,name="mynotes"),
+    path('myaccount/',myaccount),
+    path('delete/<int:id>',delete),
+    path('update/<int:id>',update),
+    path('status/<int:id>',read),
+    path('query/',listpost.as_view()),
+    path('queryd/<int:pk>',listdetails.as_view()),
+    path('users/',userlist.as_view()),
+    path('users/<str:username>',userdetail.as_view(),name="userdetail")
 ] 
