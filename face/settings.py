@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,9 +40,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework'
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -51,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'face.urls'
 TEMPLATES = [
     {
@@ -118,6 +119,12 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = "/"
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 MEDIA_ROOT ='media' 
 MEDIA_URL = '/media/'
 
@@ -186,5 +193,8 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
-STATIC_ROOT= os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
