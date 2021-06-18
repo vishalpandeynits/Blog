@@ -9,3 +9,4 @@ whitenoise==5.2.0
 django-contrib-comments
 django-crispy-forms
 django-ckeditor
+djangorestframework
